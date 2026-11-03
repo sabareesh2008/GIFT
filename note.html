@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f7e8f4" />
+  <meta name="description" content="A little universe made entirely for Santhiya." />
+  <title>A Note for You | Her Little Universe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="stylesheet" href="css/daily-mailbox.css" />
+</head>
+<body>
+  <video class="site-background-video" id="siteBackgroundVideo" autoplay muted playsinline preload="auto" poster="assets/images/intro-poster.svg" aria-hidden="true"><source src="assets/videos/placeholder-intro.mp4" type="video/mp4"></video>
+  <div class="site-video-wash" aria-hidden="true"></div>
+  <div class="ambient-bg" aria-hidden="true"><div class="ambient-orb orb-one"></div><div class="ambient-orb orb-two"></div><div class="ambient-orb orb-three"></div><div class="grain"></div></div>
+  <main class="site-shell is-visible page-shell" id="siteShell">
+    <header class="topbar">
+      <a class="brand" href="index.html" aria-label="Her Little Universe home">
+        <span class="brand-mark">✦</span><span>her little universe</span>
+      </a>
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="memories.html" class="nav-link">Memories</a>
+        <a href="daily-letters.html" class="nav-link">Daily letters</a>
+        <a href="little-surprises.html" class="nav-link">Little surprises</a>
+        <a href="note.html" class="nav-link active">A note for you</a>
+      </nav>
+      <button class="music-toggle" id="musicToggle" type="button" aria-label="Toggle music" title="Music on/off">
+        <span class="music-icon">♫</span><span class="music-label">Music off</span>
+      </button>
+      <button class="mobile-menu" id="mobileMenu" type="button" aria-label="Open menu"><span></span><span></span></button>
+    </header>
+
+    <div class="mobile-nav" id="mobileNav">
+      <a href="index.html">Home</a><a href="memories.html">Memories</a><a href="daily-letters.html">Daily letters</a><a href="little-surprises.html">Little surprises</a><a href="note.html">A note for you</a>
+    </div>
+
+
+    <div class="page-content-wrap">
+    <section class="quote-section" id="letter">
+      <div class="quote-stars">✦　✧　✦</div>
+      <p class="eyebrow">A little reminder</p>
+      <blockquote>“If I could give you one thing in this world, it would be the ability to see yourself through my eyes.”</blockquote>
+      <span class="quote-signature">with all my love ♡</span>
+      <div class="quote-stars bottom-stars">✧　✦　✧</div>
+    </section>
+
+
+    </div>
+    <footer class="footer">
+      <div class="footer-star">✦</div><p>HER LITTLE UNIVERSE</p><span>made with love, for Santhiya</span><small>♡ &nbsp; a little world, just for you &nbsp; ♡</small>
+    </footer>
+
+  </main>
+  <audio id="backgroundMusic" loop preload="none"><source src="assets/music/replace-with-your-instrumental.mp3" type="audio/mpeg"></audio>
+  <script src="js/background-video.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

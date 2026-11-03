@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f7e8f4" />
+  <meta name="description" content="A little universe made entirely for Santhiya." />
+  <title>Daily Letters | Her Little Universe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="stylesheet" href="css/daily-mailbox.css" />
+</head>
+<body>
+  <video class="site-background-video" id="siteBackgroundVideo" autoplay muted playsinline preload="auto" poster="assets/images/intro-poster.svg" aria-hidden="true"><source src="assets/videos/placeholder-intro.mp4" type="video/mp4"></video>
+  <div class="site-video-wash" aria-hidden="true"></div>
+  <div class="ambient-bg" aria-hidden="true"><div class="ambient-orb orb-one"></div><div class="ambient-orb orb-two"></div><div class="ambient-orb orb-three"></div><div class="grain"></div></div>
+  <main class="site-shell is-visible page-shell" id="siteShell">
+    <header class="topbar">
+      <a class="brand" href="index.html" aria-label="Her Little Universe home">
+        <span class="brand-mark">✦</span><span>her little universe</span>
+      </a>
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="memories.html" class="nav-link">Memories</a>
+        <a href="daily-letters.html" class="nav-link active">Daily letters</a>
+        <a href="little-surprises.html" class="nav-link">Little surprises</a>
+        <a href="note.html" class="nav-link">A note for you</a>
+      </nav>
+      <button class="music-toggle" id="musicToggle" type="button" aria-label="Toggle music" title="Music on/off">
+        <span class="music-icon">♫</span><span class="music-label">Music off</span>
+      </button>
+      <button class="mobile-menu" id="mobileMenu" type="button" aria-label="Open menu"><span></span><span></span></button>
+    </header>
+
+    <div class="mobile-nav" id="mobileNav">
+      <a href="index.html">Home</a><a href="memories.html">Memories</a><a href="daily-letters.html">Daily letters</a><a href="little-surprises.html">Little surprises</a><a href="note.html">A note for you</a>
+    </div>
+
+
+    <div class="page-content-wrap">
+    <section class="daily-mailbox-section section-pad" id="dailyMailbox">
+      <div class="section-heading reveal">
+        <p class="eyebrow"><span class="eyebrow-line"></span> A little chapter, every day <span class="eyebrow-line"></span></p>
+        <h2>Every day, <em>until you</em></h2>
+        <p>Even on the days we don't talk, I still have a thousand things to tell you.</p>
+      </div>
+      <div class="mailbox-intro reveal">
+        <span class="handwritten">little letters from my heart</span>
+        <p>Every date is a tiny mailbox. One day, you can open them and find all the things I wished I could tell you.</p>
+        <p class="mailbox-lock-note">♡ A collection being lovingly prepared for your birthday ♡</p>
+      </div>
+      <div class="mailbox-toolbar reveal">
+        <div class="mailbox-month-nav">
+          <button class="mail-month-arrow" id="mailPrevMonth" type="button" aria-label="Previous month">‹</button>
+          <h3 id="mailMonthLabel">November 2026</h3>
+          <button class="mail-month-arrow" id="mailNextMonth" type="button" aria-label="Next month">›</button>
+        </div>
+        <div class="mail-account-actions"><button class="mail-auth-button" id="mailAuthButton" type="button">♡ Sign in</button><button class="mail-logout-button" id="mailLogoutButton" type="button" hidden>Sign out</button><button class="mail-add-button" id="mailAddUpload" type="button" hidden><span>＋</span> Add today's love</button></div>
+      </div>
+      <div class="mailbox-calendar reveal">
+        <div class="mailbox-weekdays" aria-hidden="true"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div>
+        <div class="mailbox-grid" id="mailboxGrid" aria-label="Daily love mailboxes"></div>
+        <div class="mailbox-legend"><span><i class="legend-dot"></i> A quiet little day</span><span><i class="legend-dot filled"></i> A letter is waiting</span></div>
+      </div>
+      <p class="mailbox-bottom-note">one day at a time, a thousand things to say ♡</p>
+      <p class="mail-preview-mode" id="mailAccessStatus">Sign in with your authorized account to open your private mailbox.</p>
+    </section>
+
+    <!-- Selected-day mailbox -->
+    <div class="mail-modal" id="mailDateModal" aria-hidden="true">
+      <div class="mail-modal-panel" role="dialog" aria-modal="true" aria-labelledby="mailboxSelectedTitle">
+        <button class="mail-modal-close" id="mailCloseDate" type="button" aria-label="Close mailbox">×</button>
+        <div class="mail-modal-heading"><span class="handwritten">a little envelope, just for you</span><h3 id="mailboxSelectedTitle">A little day, just for you</h3><p id="mailboxSelectedDate"></p></div>
+        <div class="mail-empty" id="mailboxEmpty"><div class="empty-heart">♡</div><h4>This little mailbox is still waiting</h4><p>Maybe one day, there will be a voice, a note or a photograph tucked inside.</p></div>
+        <div class="mail-entry-list" id="mailboxEntries"></div>
+      </div>
+    </div>
+
+    <!-- Secure administrator upload experience. -->
+    <div class="mail-modal" id="mailUploadModal" aria-hidden="true">
+      <div class="mail-modal-panel" role="dialog" aria-modal="true" aria-labelledby="mailUploadHeading">
+        <button class="mail-modal-close" id="mailCloseUpload" type="button" aria-label="Close upload form">×</button>
+        <div class="mail-modal-heading"><span class="handwritten">save another little piece of your heart</span><h3 id="mailUploadHeading">What would you like to tell her?</h3><p>Choose a little memory, add your words, and tuck it into the right date.</p></div>
+        <form class="mail-upload-form" id="mailUploadForm">
+          <div class="mail-field"><label for="mailContentType">What are you adding today?</label><select id="mailContentType"><option value="text">A message from my heart</option><option value="audio">A voice note</option><option value="video">A little video</option><option value="image">Photographs</option></select></div>
+          <div class="mail-upload-row">
+            <div class="mail-field"><label for="mailEntryTitle">A little title</label><input id="mailEntryTitle" type="text" maxlength="100" placeholder="Something I wanted to tell you..."></div>
+            <div class="mail-field"><label for="mailEntryDate">Which day is this for?</label><input id="mailEntryDate" type="date" required></div>
+          </div>
+          <div class="mail-field" id="mailTextField"><label for="mailText">Your message</label><textarea id="mailText" maxlength="10000" placeholder="Write everything you wish you could tell her..."></textarea></div>
+          <div class="mail-field" id="mailFileField" hidden><label id="mailFileLabel" for="mailFile">Choose a file</label><input id="mailFile" type="file"><div class="mail-preview" id="mailPreview"></div></div>
+          <div class="mail-field" id="mailRecordField" hidden><label>Or record it right here</label><div class="mail-record-box"><p class="mail-record-status" id="mailRecordHint">Use your microphone or camera to record a little moment.</p><div class="mail-record-actions"><button class="mail-record-button" id="mailRecordButton" type="button">Start recording</button><button class="mail-record-button" id="mailStopButton" type="button" disabled>Stop recording</button></div><p class="mail-record-status" id="mailRecordingStatus">Your recording will appear here for a preview.</p></div></div>
+          <div class="mail-field"><label for="mailEntryNotes">A little note about it (optional)</label><textarea id="mailEntryNotes" maxlength="1200" placeholder="What made you save this moment? Why should she see it?"></textarea></div>
+          <div class="mail-form-actions"><button class="mail-cancel-button" id="mailCancelUpload" type="button">Maybe later</button><button class="mail-save-button" type="submit">Save this little moment ♡</button></div>
+        </form>
+      </div>
+    </div>
+    <div class="mail-modal" id="mailAuthModal" aria-hidden="true">
+      <div class="mail-modal-panel mail-auth-panel" role="dialog" aria-modal="true" aria-labelledby="mailAuthHeading">
+        <button class="mail-modal-close" id="mailCloseAuth" type="button" aria-label="Close sign in">×</button>
+        <div class="mail-modal-heading"><span class="handwritten">your little key to this world</span><h3 id="mailAuthHeading">Sign in with love</h3><p>Only accounts added by the owner can enter this private mailbox.</p></div>
+        <form id="mailAuthForm" class="mail-upload-form">
+          <div class="mail-field"><label for="mailAuthEmail">Email address</label><input id="mailAuthEmail" type="email" autocomplete="username" required placeholder="Your registered email"></div>
+          <div class="mail-field"><label for="mailAuthPassword">Password</label><input id="mailAuthPassword" type="password" autocomplete="current-password" required placeholder="Your password"></div>
+          <p class="mail-auth-error" id="mailAuthError" role="alert"></p>
+          <div class="mail-form-actions"><button class="mail-save-button" type="submit" id="mailAuthSubmit">Sign in ♡</button></div>
+        </form>
+      </div>
+    </div>
+    <div class="mailbox-toast" id="mailboxToast" role="status" aria-live="polite"></div>
+
+
+    </div>
+    <footer class="footer">
+      <div class="footer-star">✦</div><p>HER LITTLE UNIVERSE</p><span>made with love, for Santhiya</span><small>♡ &nbsp; a little world, just for you &nbsp; ♡</small>
+    </footer>
+
+  </main>
+  <audio id="backgroundMusic" loop preload="none"><source src="assets/music/replace-with-your-instrumental.mp3" type="audio/mpeg"></audio>
+  <script src="js/background-video.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="js/daily-mailbox.js"></script>
+</body>
+</html>

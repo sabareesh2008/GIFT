@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f7e8f4" />
+  <meta name="description" content="A little universe made entirely for Santhiya." />
+  <title>Our Memories | Her Little Universe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="stylesheet" href="css/daily-mailbox.css" />
+</head>
+<body>
+  <video class="site-background-video" id="siteBackgroundVideo" autoplay muted playsinline preload="auto" poster="assets/images/intro-poster.svg" aria-hidden="true"><source src="assets/videos/placeholder-intro.mp4" type="video/mp4"></video>
+  <div class="site-video-wash" aria-hidden="true"></div>
+  <div class="ambient-bg" aria-hidden="true"><div class="ambient-orb orb-one"></div><div class="ambient-orb orb-two"></div><div class="ambient-orb orb-three"></div><div class="grain"></div></div>
+  <main class="site-shell is-visible page-shell" id="siteShell">
+    <header class="topbar">
+      <a class="brand" href="index.html" aria-label="Her Little Universe home">
+        <span class="brand-mark">✦</span><span>her little universe</span>
+      </a>
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="memories.html" class="nav-link active">Memories</a>
+        <a href="daily-letters.html" class="nav-link">Daily letters</a>
+        <a href="little-surprises.html" class="nav-link">Little surprises</a>
+        <a href="note.html" class="nav-link">A note for you</a>
+      </nav>
+      <button class="music-toggle" id="musicToggle" type="button" aria-label="Toggle music" title="Music on/off">
+        <span class="music-icon">♫</span><span class="music-label">Music off</span>
+      </button>
+      <button class="mobile-menu" id="mobileMenu" type="button" aria-label="Open menu"><span></span><span></span></button>
+    </header>
+
+    <div class="mobile-nav" id="mobileNav">
+      <a href="index.html">Home</a><a href="memories.html">Memories</a><a href="daily-letters.html">Daily letters</a><a href="little-surprises.html">Little surprises</a><a href="note.html">A note for you</a>
+    </div>
+
+
+    <div class="page-content-wrap">
+    <section class="memories-section section-pad" id="memories">
+      <div class="section-heading reveal">
+        <p class="eyebrow"><span class="eyebrow-line"></span> Chapter one <span class="eyebrow-line"></span></p>
+        <h2>A sky full of <em>memories</em></h2>
+        <p>Turn a page, keep a moment, and find a little note tucked inside.</p>
+      </div>
+
+      <div class="memory-book-wrap reveal">
+        <div class="book-intro-note">
+          <span class="handwritten">our story, in little pieces</span>
+          <p>Every page holds a tiny moment. Tap the page to turn it, or use the arrows to wander through our little story.</p>
+        </div>
+        <div class="memory-book" id="memoryBook" aria-label="Interactive memory book">
+          <div class="book-spine"></div>
+          <div class="book-page page-left">
+            <div class="page-decoration">✦</div>
+            <p class="page-kicker">A little universe</p>
+            <h3>Our<br><em>memories</em></h3>
+            <div class="page-flower">✿</div>
+            <p class="page-small">a collection of moments<br>that feel like home</p>
+          </div>
+          <div class="book-page page-right" id="bookRightPage">
+            <div class="page-content" id="pageContent">
+              <div class="page-photo-frame"><img id="memoryPhoto" src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=1000&q=85" alt="Placeholder memory photograph"></div>
+              <p class="page-date" id="memoryDate">A DAY TO REMEMBER</p>
+              <h3 id="memoryTitle">The little things</h3>
+              <p class="page-caption" id="memoryCaption">Some moments are small, but they stay with us in the loveliest ways.</p>
+              <button class="secret-note-button" id="secretNoteButton" type="button">♡ Open the little note</button>
+            </div>
+            <div class="secret-note" id="secretNote" aria-hidden="true">
+              <span class="note-heart">♡</span>
+              <p class="handwritten">a little secret</p>
+              <p id="secretMessage">If I could keep one feeling in a little glass jar, it would be the happiness of moments like this.</p>
+              <button id="closeSecretNote" type="button">fold this note ✧</button>
+            </div>
+          </div>
+          <div class="book-page page-turn" id="pageTurn" aria-hidden="true">
+            <div class="turn-front"><span>✧</span></div>
+            <div class="turn-back"><span>♡</span></div>
+          </div>
+          <div class="book-cover" id="bookCover">
+            <div class="cover-inner">
+              <span class="cover-top">A KEEPSAKE OF US</span>
+              <div class="cover-emblem">♡</div>
+              <h3>Our Little<br><em>Storybook</em></h3>
+              <span class="cover-bottom">made with love, for Santhiya</span>
+              <button id="openBook" type="button">Open our book <span>↗</span></button>
+            </div>
+          </div>
+        </div>
+        <div class="book-controls">
+          <button class="book-arrow" id="prevMemory" type="button" aria-label="Previous memory" disabled>←</button>
+          <div class="book-progress">
+            <span id="bookCounter">Cover</span>
+            <div class="book-progress-track"><span id="bookProgressFill"></span></div>
+          </div>
+          <button class="book-arrow" id="nextMemory" type="button" aria-label="Next memory">→</button>
+        </div>
+        <p class="book-helper" id="bookHelper">A little book, filled with moments waiting to be opened.</p>
+      </div>
+    </section>
+
+
+    </div>
+    <footer class="footer">
+      <div class="footer-star">✦</div><p>HER LITTLE UNIVERSE</p><span>made with love, for Santhiya</span><small>♡ &nbsp; a little world, just for you &nbsp; ♡</small>
+    </footer>
+
+  </main>
+  <audio id="backgroundMusic" loop preload="none"><source src="assets/music/replace-with-your-instrumental.mp3" type="audio/mpeg"></audio>
+  <script src="js/background-video.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/photo-book.js"></script>
+</body>
+</html>

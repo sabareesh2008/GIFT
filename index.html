@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f7e8f4" />
+  <meta name="description" content="A little universe made entirely for Santhiya." />
+  <title>Her Little Universe ✦</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="stylesheet" href="css/daily-mailbox.css" />
+</head>
+<body>
+  <video class="site-background-video" id="siteBackgroundVideo" autoplay muted playsinline preload="auto" poster="assets/images/intro-poster.svg" aria-hidden="true"><source src="assets/videos/placeholder-intro.mp4" type="video/mp4"></video>
+  <div class="site-video-wash" aria-hidden="true"></div>
+  <div class="ambient-bg" aria-hidden="true"><div class="ambient-orb orb-one"></div><div class="ambient-orb orb-two"></div><div class="ambient-orb orb-three"></div><div class="grain"></div></div>
+  <main class="site-shell is-visible page-shell" id="siteShell">
+    <header class="topbar">
+      <a class="brand" href="index.html" aria-label="Her Little Universe home">
+        <span class="brand-mark">✦</span><span>her little universe</span>
+      </a>
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="memories.html" class="nav-link">Memories</a>
+        <a href="daily-letters.html" class="nav-link">Daily letters</a>
+        <a href="little-surprises.html" class="nav-link">Little surprises</a>
+        <a href="note.html" class="nav-link">A note for you</a>
+      </nav>
+      <button class="music-toggle" id="musicToggle" type="button" aria-label="Toggle music" title="Music on/off">
+        <span class="music-icon">♫</span><span class="music-label">Music off</span>
+      </button>
+      <button class="mobile-menu" id="mobileMenu" type="button" aria-label="Open menu"><span></span><span></span></button>
+    </header>
+
+    <div class="mobile-nav" id="mobileNav">
+      <a href="index.html">Home</a><a href="memories.html">Memories</a><a href="daily-letters.html">Daily letters</a><a href="little-surprises.html">Little surprises</a><a href="note.html">A note for you</a>
+    </div>
+
+
+    <div class="page-content-wrap">
+    <section class="hero section-pad" id="home">
+      <div class="hero-sparkle sparkle-a">✧</div><div class="hero-sparkle sparkle-b">✦</div>
+      <div class="hero-content reveal">
+        <p class="eyebrow"><span class="eyebrow-line"></span> A universe of our own <span class="eyebrow-line"></span></p>
+        <h1 class="hero-title">HER LITTLE<br><em>UNIVERSE</em></h1>
+        <p class="hero-subtitle">A little world made entirely for you.</p>
+        <p class="hero-description">A place for all the tiny moments, the big feelings,<br class="desktop-only"> and everything that makes you, <span>you.</span></p>
+        <a href="#memories" class="primary-button"><span>Wander a little</span><span class="button-arrow">↓</span></a>
+      </div>
+      <div class="hero-art reveal" aria-label="Dreamy floating planet illustration">
+        <div class="orbit orbit-outer"></div><div class="orbit orbit-inner"></div>
+        <div class="planet-glow"></div>
+        <div class="planet"><div class="planet-shine"></div><div class="planet-ring"></div></div>
+        <div class="tiny-moon">☾</div><div class="floating-heart heart-one">♡</div><div class="floating-heart heart-two">♥</div>
+        <span class="planet-star star-one">✦</span><span class="planet-star star-two">✧</span><span class="planet-star star-three">✦</span>
+        <div class="orbit-label label-top">made of little moments</div>
+        <div class="orbit-label label-bottom">and a whole lot of love</div>
+      </div>
+      <div class="scroll-cue"><span></span>SCROLL TO EXPLORE</div>
+    </section>
+
+    <section class="welcome-strip">
+      <span class="strip-flower">✿</span>
+      <p>In this little universe, <em>every detail has a story.</em></p>
+      <span class="strip-flower">✿</span>
+    </section>
+
+    <section class="welcome-strip">
+      <span class="strip-flower">✿</span>
+      <p>In this little universe, <em>every detail has a story.</em></p>
+      <span class="strip-flower">✿</span>
+    </section>
+
+
+    </div>
+    <footer class="footer">
+      <div class="footer-star">✦</div><p>HER LITTLE UNIVERSE</p><span>made with love, for Santhiya</span><small>♡ &nbsp; a little world, just for you &nbsp; ♡</small>
+    </footer>
+
+  </main>
+  <audio id="backgroundMusic" loop preload="none"><source src="assets/music/replace-with-your-instrumental.mp3" type="audio/mpeg"></audio>
+  <script src="js/background-video.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
