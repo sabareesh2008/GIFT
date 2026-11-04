@@ -49,3 +49,7 @@ The provided Supabase Project URL and publishable browser key are configured in 
 
 ## Separate pages
 The site is now split into five separate pages: `index.html` (Home), `memories.html` (Memories), `daily-letters.html` (Daily Letters), `little-surprises.html` (Little Surprises), and `note.html` (A Note for You). The navigation links move between pages instead of scrolling through one long page. Keep all files and folders together when hosting on GitHub Pages.
+
+
+## ME, ALWAYS HERE
+A new prototype page is available at `me-always-here.html`. See `ME_ALWAYS_HERE_IMPLEMENTATION.md` for the agreed requirements and the secure production integration plan. The AI, cloned voice, live avatar and real-time services are not connected in this prototype.

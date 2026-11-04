@@ -5,7 +5,7 @@
       title: 'The little things',
       caption: 'Some moments are small, but they stay with us in the loveliest ways.',
       note: 'If I could keep one feeling in a little glass jar, it would be the happiness of moments like this.',
-      image: 'assets/images/memory1.jpg',
+      image: 'aassets/images/memory1.jpg',
       alt: 'Two people holding hands, placeholder photograph'
     },
     {
@@ -45,7 +45,7 @@
   title: 'My favourite person',
   caption: 'A beautiful moment I never want to forget.',
   note: 'You make my world more beautiful, Santhiya.',
-  image: 'assets/images/memory1.jpg',
+  image: 'assets/images/memory6.jpg',
   alt: 'Our favourite photograph'
   }
   ];
@@ -76,14 +76,8 @@
 
   function renderMemory() {
     const item = memories[index];
-    photo.onerror = () => {
-      photo.onerror = null;
-      photo.src = 'assets/images/memory-placeholder.svg';
-      photo.classList.add('is-placeholder');
-    };
-    photo.classList.remove('is-placeholder');
-    photo.src = item.image || 'assets/images/memory-placeholder.svg';
-    photo.alt = item.alt || 'Memory photograph';
+    photo.src = item.image;
+    photo.alt = item.alt;
     date.textContent = item.date;
     title.textContent = item.title;
     caption.textContent = item.caption;
@@ -121,7 +115,7 @@
     if (opened) return;
     opened = true;
     book.classList.add('is-open');
-    counter.textContent = `Memory 1 of ${memories.length}`;
+    counter.textContent = 'Memory 1 of 5';
     helper.textContent = 'Welcome to our little collection. Turn a page to explore.';
     window.setTimeout(renderMemory, 650);
   }
