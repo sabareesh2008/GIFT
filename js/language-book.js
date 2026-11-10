@@ -147,14 +147,33 @@
       if(existingPage) previousAudioPaths=[existingPage.audio_original_path,existingPage.audio_tamil_path,existingPage.audio_english_path].filter(Boolean);
       const pageId = crypto.randomUUID();
       const audioPaths={};
-      for (const [kind,file] of Object.entries(files)) {
-        const safeName=file.name.replace(/[^a-zA-Z0-9._-]/g,'_').slice(-90);
-        const path=`${session.user.id}/${String(pageNumber).padStart(3,'0')}/${pageId}-${kind}-${safeName}`;
-        const mimeType=(file.type || 'audio/webm').split(';')[0].trim();
-        const {error}=await client.storage.from('hlu-language-book').upload(path,file,{contentType:mimeType,upsert:false});
-        if(error) throw error;
-        uploadedPaths.push(path); audioPaths[`audio_${kind}_path`]=path;
-      }
+      
+for (const [kind, file] of Object.entries(files)) {
+
+    // Skip audio fields that have no selected file
+    if (!file) continue;
+
+    const safeName = file.name
+        .replace(/[^a-zA-Z0-9._-]/g, '_')
+        .slice(-90);
+
+    const path = `${session.user.id}/${String(pageNumber).padStart(3, '0')}/${pageId}-${kind}-${safeName}`;
+
+    const mimeType = file.type || 'audio/webm';
+
+    const { error } = await client.storage
+        .from('hlu-language-book')
+        .upload(path, file, {
+            contentType: mimeType,
+            upsert: false
+        });
+
+    if (error) throw error;
+
+    uploadedPaths.push(path);
+    audioPaths[`audio_${kind}_path`] = path;
+}
+
       const row={page_number:pageNumber,language:$('uploadLanguage').value.trim(),opening:$('uploadOpening').value.trim(),poem:$('uploadPoem').value.trim(),ending:$('uploadEnding').value.trim(),tamil_translation:$('uploadTamilTranslation').value.trim(),english_translation:$('uploadEnglishTranslation').value.trim(),...audioPaths,is_published:true,created_by:session.user.id,updated_at:new Date().toISOString()};
       const {error}=await client.from('hlu_language_book_pages').upsert(row,{onConflict:'page_number'});
       if(error) throw error;
