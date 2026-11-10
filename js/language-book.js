@@ -130,11 +130,18 @@
     let previousAudioPaths=[];
     try {
       if (!Number.isInteger(pageNumber) || pageNumber < 1 || pageNumber > 200) throw new Error('Choose a page number between 1 and 200.');
-      for (const [kind,file] of Object.entries(files)) {
-        if (!file) throw new Error(`Please select the ${kind} voice recording.`);
-        if (!file.type.startsWith('audio/')) throw new Error('Please choose audio files only.');
-        if (file.size > 25 * 1024 * 1024) throw new Error('Each audio recording must be smaller than 25 MB.');
-      }
+      for (const [kind, file] of Object.entries(files)) {
+    // Audio is optional
+    if (!file) continue;
+
+    if (!file.type.startsWith('audio/')) {
+        throw new Error('Please choose audio files only.');
+    }
+
+    if (file.size > 25 * 1024 * 1024) {
+        throw new Error('Each audio recording must be smaller than 25 MB.');
+    }
+}
       const {data:existingPage,error:existingLookupError}=await client.from('hlu_language_book_pages').select('audio_original_path,audio_tamil_path,audio_english_path').eq('page_number',pageNumber).maybeSingle();
       if(existingLookupError) throw existingLookupError;
       if(existingPage) previousAudioPaths=[existingPage.audio_original_path,existingPage.audio_tamil_path,existingPage.audio_english_path].filter(Boolean);
