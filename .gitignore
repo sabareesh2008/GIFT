@@ -1,0 +1,5 @@
+node_modules/
+.antigravity_marker
+.keep
+*.log
+js/secrets.js

@@ -53,3 +53,10 @@ The site is now split into five separate pages: `index.html` (Home), `memories.h
 
 ## ME, ALWAYS HERE
 A new prototype page is available at `me-always-here.html`. See `ME_ALWAYS_HERE_IMPLEMENTATION.md` for the agreed requirements and the secure production integration plan. The AI, cloned voice, live avatar and real-time services are not connected in this prototype.
+
+
+## ME, ALWAYS HERE — AI chat brain
+
+The ME, ALWAYS HERE page now includes a Supabase-backed AI chat integration. Apply `supabase/ai-brain.sql`, deploy `supabase/functions/me-always-here`, and configure the private `OPENAI_API_KEY` Edge Function secret by following `ME_ALWAYS_HERE_IMPLEMENTATION.md`. The browser uses the existing Supabase publishable key and never receives the model API key. Chat history and approved memories are private and protected by Row Level Security.
+
+The AI chat requires an authenticated account present in `hlu_members`. It supports English, conversational Tamil and Tanglish response matching. Speak mode remains a future integration; this release does not include voice cloning, live calls or an avatar.

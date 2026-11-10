@@ -72,3 +72,28 @@ Only your account should have the `admin` role. Santhiya must have `viewer` only
 - Camera/microphone recording requires HTTPS or localhost and browser permission.
 - GitHub Pages provides HTTPS.
 - Do not publish private recordings before the database, Auth users, roles and birthday have been configured and tested.
+
+
+## ME, ALWAYS HERE AI setup
+
+For the AI chat feature, follow `ME_ALWAYS_HERE_IMPLEMENTATION.md`:
+
+1. Run `supabase/ai-brain.sql` in SQL Editor.
+2. Add `OPENAI_API_KEY` as a Supabase Edge Function secret (never in browser code).
+3. Deploy `supabase/functions/me-always-here` with the Supabase CLI.
+4. Add only verified facts to `hlu_ai_memories` and mark them approved before the model can use them.
+5. Test English, Tamil, Tanglish, conversation persistence and unauthorized access.
+
+The AI chat reuses the signed-in Supabase member accounts. Existing Daily Letters schema and access policies remain separate and unchanged.
+
+
+## 200 Languages poetry book (new feature)
+
+1. Open your Supabase project dashboard.
+2. Go to **SQL Editor** and create a new query.
+3. Open `supabase/language-book.sql` from this project, copy the complete SQL, and run it. This creates a separate table and a separate private audio bucket for the poetry book; it does not modify the daily-letter table.
+4. Keep the existing authorized administrator account in `hlu_members` with role `admin`. The book reuses the existing sign-in and birthday access rules.
+5. Open `language-book.html` on your deployed website. Sign in, choose **Upload a page**, and add the language, opening phrase, poem, ending phrase, Tamil and English translations, and three audio recordings.
+6. Page numbers are unique from 1 to 200. Uploading an already-used page number updates that page. Audio files are limited to 25 MB each.
+
+The first three approved diary pages (Tamil, English and Malayalam) are included as local previews. Upload their final audio recordings and publish them to save them in Supabase. The book page design is shared across all languages.
